@@ -1,0 +1,30 @@
+@mixin clearLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 200;
+}
+
+@mixin imageStyle {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@mixin clearBtn {
+  text-transform: uppercase;
+  display: block;
+  font-weight: 200;
+  font-family: $default-font;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3rem;
+  background-color: transparent;
+}
+
+@mixin btnCta {
+  padding: 1rem 2rem 0.7rem 2rem;
+  border: 1px solid $color-dark-main;
+  font-size: 1.7rem;
+  transition: all 0.3s;
+}

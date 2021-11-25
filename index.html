@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damian Rives</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/icon-font.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Scripts -->
+    <script defer src="js/main.js"></script>
+  </head>
+  <body>
+    <!--  ##########  Navigation  ##########  -->
+    <nav class="navigation">
+      <a href="#" class="navigation__logo">damian rives</a>
+      <ul class="navigation__list">
+        <li class="navigation__list--item">
+          <a href="#collection" class="navigation__list--link">collection</a>
+        </li>
+        <li class="navigation__list--item">
+          <a href="#news" class="navigation__list--link">news</a>
+        </li>
+        <li class="navigation__list--item">
+          <a href="#stories" class="navigation__list--link">stories</a>
+        </li>
+        <li class="navigation__list--item">
+          <a href="#" class="navigation__list--link">contacts</a>
+        </li>
+      </ul>
+    </nav>
+    <!--  ##########  End of navigation  ##########  -->
+
+    <!--  ##########  Header  ##########  -->
+    <header class="header">
+      <div class="header__video">
+        <video class="header__video--content" autoplay muted loop>
+          <source
+            src="images/header/header__video--medium.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="images/header/header__video--medium.mp4.webm"
+            type="video/webm"
+          />
+          Your browser is not supported!
+        </video>
+      </div>
+      <i class="icon-music-pause-button header__video--controls"></i>
+    </header>
+    <!--  ##########  End of header  ##########  -->
+
+    <!--  ##########  Main  ##########  -->
+    <main>
+      <!--  ##########  Latest collection  ##########  -->
+      <section class="section latest-collection">
+        <picture class="latest-collection__picture">
+          <source
+            media="(max-width: 480px)"
+            srcset="images/latest-collection/latest--collection-small.jpg"
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="images/latest-collection/latest--collection-medium.jpg"
+          />
+
+          <img
+            srcset="images/latest-collection/latest--collection-large.jpg"
+            src="images/latest-collection/latest--collection-medium.jpg"
+            alt="Model of DR"
+            class="latest-collection__model"
+          />
+        </picture>
+
+        <h3 class="latest-collection__title">the new best scent is here</h3>
+
+        <img
+          src="images/latest-collection/perfume.png"
+          alt="Perfume"
+          class="latest-collection__perfume"
+        />
+        <button class="latest-collection__cta">discover</button>
+      </section>
+      <!--  ##########  End of latest collection  ##########  -->
+
+      <!--  ##########  Top products today  ##########  -->
+      <section class="section top-products">
+        <h2 class="section-heading">top products today</h2>
+        <div class="slider">
+          <span class="slider__btn slider__btn-left">&#8592;</span>
+          <span class="slider__btn slider__btn-right">&#8594;</span>
+          <div class="slide">
+            <div class="top-products__title">leather jacket</div>
+            <img
+              src="images/top-products/offer__image-mon-1.png"
+              class="top-products__image"
+              alt="Product image"
+            />
+            <div class="top-products__price">
+              <div>$89</div>
+              <div class="top-products__price-old">$129</div>
+            </div>
+            <btn class="top-products__cta">shop</btn>
+          </div>
+
+          <div class="slide">
+            <div class="top-products__title">DR Watch</div>
+            <img
+              src="images/top-products/offer__image-mon-2.png"
+              class="top-products__image"
+              alt="Product image"
+            />
+            <div class="top-products__price">
+              <div>$189</div>
+              <div class="top-products__price-old">$209</div>
+            </div>
+            <btn class="top-products__cta">shop</btn>
+          </div>
+
+          <div class="slide">
+            <div class="top-products__title">DR Sunglasses</div>
+            <img
+              src="images/top-products/offer__image-wed-2.png"
+              class="top-products__image"
+              alt="Product image"
+            />
+            <div class="top-products__price">
+              <div>$119</div>
+              <div class="top-products__price-old">$139</div>
+            </div>
+            <btn class="top-products__cta">shop</btn>
+          </div>
+        </div>
+      </section>
+      <!--  ##########  End of top products  ##########  -->
+
+      <!--  ##########  Collection  ##########  -->
+      <!-- <section id="collection" class="section collection"></section> -->
+      <!--  ##########  End of collection  ##########  -->
+
+      <!--  ##########  News  ##########  -->
+      <section id="news" class="section news">
+        <h2 class="section-heading">news</h2>
+        <div class="news__container">
+          <div class="news__new" data-news="sports">
+            <div class="news__title">sports collection</div>
+          </div>
+          <div class="news__new" data-news="grounds">
+            <div class="news__title">on open grounds</div>
+          </div>
+          <div class="news__new" data-news="discount">
+            <div class="news__title">holiday special discount</div>
+          </div>
+        </div>
+      </section>
+      <!--  ##########  End of news  ##########  -->
+
+      <!--  ##########  Stories  ##########  -->
+      <section id="stories" class="section stories">
+        <h2 class="section-heading">stories</h2>
+        <div class="stories__container">
+          <div class="stories__story--1"></div>
+          <div class="stories__story--2"></div>
+          <div class="stories__story--3"></div>
+          <div class="stories__story--4"></div>
+          <div class="stories__story--5"></div>
+        </div>
+      </section>
+      <!--  ##########  End of stories  ##########  -->
+    </main>
+    <!--  ##########  End of main  ##########  -->
+
+    <!--  ##########  Modals  ##########  -->
+    <div class="modal" data-news="sports">
+      <div class="modal__window">
+        <span class="modal__window--close">&#10005;</span>
+        <picture class="modal__window--picture">
+          <source
+            media="(max-width: 480px)"
+            srcset="images/news/new-collection--small.jpg"
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="images/news/new-collection--medium.jpg"
+          />
+
+          <img
+            srcset="images/news/new-collection--large.jpg"
+            src="images/news/new-collection--small.jpg"
+            alt="New sports collection"
+            class="modal__window--image"
+          />
+        </picture>
+        <div class="modal__window--title">
+          new sports collection is on its way
+        </div>
+        <div class="modal__window--text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta culpa
+          praesentium, quibusdam voluptates dolor quasi autem ratione quaerat
+          temporibus provident.
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" data-news="grounds">
+      <div class="modal__window">
+        <span class="modal__window--close">&#10005;</span>
+        <picture class="modal__window--picture">
+          <source
+            media="(max-width: 480px)"
+            srcset="images/news/open-grounds--small.jpg"
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="images/news/open-grounds--medium.jpg"
+          />
+
+          <img
+            srcset="images/news/open-grounds--large.jpg"
+            src="images/news/new-collection--small.jpg"
+            alt="New sports collection"
+            class="modal__window--image"
+          />
+        </picture>
+        <div class="modal__window--title">on open grounds</div>
+        <div class="modal__window--text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+          reprehenderit dolore et reiciendis quam dicta tempora porro illum
+          excepturi? A totam blanditiis magni quasi possimus rem laboriosam
+          perspiciatis molestias eaque cum, id ex vel deserunt perferendis,
+          eveniet consequatur mollitia corrupti vero nostrum accusamus ab!
+          Laboriosam commodi assumenda quo ex ratione?
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" data-news="discount">
+      <div class="modal__window">
+        <span class="modal__window--close">&#10005;</span>
+        <picture class="modal__window--picture">
+          <source
+            media="(max-width: 480px)"
+            srcset="images/news/news-sale--small.jpg"
+          />
+          <source
+            media="(max-width: 1200px)"
+            srcset="images/news/news-sale--medium.jpg"
+          />
+
+          <img
+            srcset="images/news/news-sale--large.jpg"
+            src="images/news/new-collection--small.jpg"
+            alt="New sports collection"
+            class="modal__window--image"
+          />
+        </picture>
+        <div class="modal__window--title">
+          special discounts for the holidays
+        </div>
+        <div class="modal__window--text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+          excepturi.
+        </div>
+      </div>
+    </div>
+    <!--  ##########  End of modals  ##########  -->
+  </body>
+</html>

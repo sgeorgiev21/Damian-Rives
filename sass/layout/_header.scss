@@ -1,0 +1,33 @@
+.header {
+  height: 100vh;
+  position: relative;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+
+    &--content {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &--controls {
+      position: absolute;
+      right: 5%;
+      bottom: 5%;
+      font-size: 6rem;
+      color: $color-white-main;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+}
