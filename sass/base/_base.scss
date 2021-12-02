@@ -8,14 +8,28 @@
 
 html {
   font-size: 62.5%;
+
+  @include respond(Tab) {
+    font-size: 50%;
+  }
+
+  @include respond(Phone) {
+    font-size: 40%;
+  }
 }
 
 body {
   box-sizing: border-box;
   font-family: $default-font;
   color: $color-dark-main;
+  background-color: $color-white-secondary;
+  font-weight: 200;
 }
 
 main {
-  padding: 10rem;
+  padding: 10rem 5rem 0 5rem;
+
+  @include respond(Tab) {
+    padding: 1rem;
+  }
 }

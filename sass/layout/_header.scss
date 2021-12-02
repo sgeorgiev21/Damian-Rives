@@ -2,6 +2,20 @@
   height: 100vh;
   position: relative;
 
+  @include respond(Tab) {
+    background-image: url("../../images/header/header__fallback.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  @include respond(Phone) {
+    background-image: url("../../images/latest-collection/latest--collection-small.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
   &__video {
     position: absolute;
     top: 0;
@@ -25,9 +39,41 @@
       cursor: pointer;
       transition: all 0.3s;
 
+      @include respond(Tab) {
+        display: none;
+      }
+
       &:hover {
         transform: scale(1.5);
       }
+    }
+
+    @include respond(Tab) {
+      display: none;
+    }
+  }
+
+  &__fallback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__cta {
+    @include clearLink;
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translateX(-50%);
+    color: $color-white-main;
+    font-size: 2rem;
+    background-color: rgba($color-dark-main, 0.3);
+    padding: 1rem 2rem 0.7rem 2rem;
+    transition: all 0.5s;
+
+    &:hover {
+      letter-spacing: 0.2rem;
+      background-color: rgba($color-dark-main, 0.8);
     }
   }
 }

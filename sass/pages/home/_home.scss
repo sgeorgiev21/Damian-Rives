@@ -1,0 +1,104 @@
+/*  ----------  Latest product  ----------  */
+.latest-product {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 18vh);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 5rem;
+
+  @include respond(Tab) {
+    grid-template-rows: repeat(4, 18vh);
+  }
+
+  &__picture {
+    grid-column: 1/3;
+    grid-row: 1/-1;
+
+    @include respond(Tab) {
+      display: none;
+    }
+  }
+
+  &__model {
+    @include imageStyle;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  &__perfume {
+    @include imageStyle;
+    object-fit: contain;
+    grid-column: 2/4;
+    grid-row: 2/5;
+    transition: all 0.3s;
+    transform: scale(2);
+    filter: drop-shadow(12px 12px 22px #000);
+
+    @include respond(Tab) {
+      grid-column: 1/4;
+      transform: scale(1.5);
+      grid-row: 2/-1;
+    }
+  }
+
+  &__title {
+    grid-column: 4/-1;
+    grid-row: 1/2;
+    z-index: 1;
+    text-align: center;
+
+    @include respond(Tab) {
+      grid-column: 1/-1;
+    }
+  }
+
+  &__text {
+    grid-column: 4/-1;
+    grid-row: 2/4;
+    z-index: 1;
+    font-size: 2rem;
+    text-transform: uppercase;
+    align-self: center;
+    justify-self: center;
+
+    @include respond(Tab) {
+      grid-column: 3/-1;
+    }
+  }
+
+  &__line {
+    margin: 3rem 0;
+    transition: all 0.5s;
+
+    &:nth-child(2) {
+      margin-left: 4rem;
+      transition-delay: 0.3s;
+    }
+    &:nth-child(3) {
+      margin-left: 8rem;
+      transition-delay: 0.6s;
+    }
+  }
+
+  &__cta {
+    @include clearLink;
+    @include btnCta;
+    grid-column: 4/-1;
+    grid-row: 4/-1;
+    justify-self: center;
+    z-index: 1;
+    color: inherit;
+    align-self: flex-start;
+
+    @include respond(Tab) {
+      grid-column: 3/-1;
+    }
+
+    &:hover {
+      color: $color-white-main;
+      background-color: $color-dark-main;
+    }
+  }
+}

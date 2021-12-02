@@ -1,39 +1,99 @@
 .slider {
   position: relative;
   width: 100%;
-  height: 70vh;
-  margin-top: 5rem;
+  height: 80vh;
+  overflow: hidden;
+  transition: all 0.4s;
+
+  @include respond(Phone) {
+    height: 60vh;
+  }
 
   &__btn {
-    font-size: 7rem;
+    color: $color-white-main;
+    font-size: 3rem;
+    transition: inherit;
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: $color-dark-secondary;
-    transition: all 0.3s;
     z-index: 1;
+    filter: drop-shadow(2px 2px 7px $color-dark-main);
+
+    @include respond(Phone) {
+      top: 95%;
+    }
+
+    &:nth-child(1) {
+      left: 1%;
+    }
+
+    &:nth-child(2) {
+      right: 1%;
+    }
 
     &:hover {
-      color: $color-dark-main;
-    }
-
-    &-left {
-      left: 0;
-    }
-
-    &-right {
-      right: 0;
+      color: $color-white-secondary;
     }
   }
-}
 
-.slide {
-  position: absolute;
-  width: 100%;
-  transition: all 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.5s;
+
+    &:nth-child(3) {
+      background-image: url("../../images/collection/collection__coats--large.jpg");
+
+      @include respond(Tab) {
+        background-image: url("../../images/collection/collection__coats--medium.jpg");
+      }
+
+      @include respond(Phone) {
+        background-image: url("../../images/collection/collection__coats--small.jpg");
+      }
+    }
+
+    &:nth-child(4) {
+      background-image: url("../../images/collection/collection__jeans--large.jpg");
+
+      @include respond(Tab) {
+        background-image: url("../../images/collection/collection__jeans--medium.jpg");
+      }
+
+      @include respond(Phone) {
+        background-image: url("../../images/collection/collection__jeans--small.jpg");
+      }
+    }
+
+    &:nth-child(5) {
+      background-image: url("../../images/collection/collection__shirt--large.jpg");
+
+      @include respond(Tab) {
+        background-image: url("../../images/collection/collection__shirt--medium.jpg");
+      }
+
+      @include respond(Phone) {
+        background-image: url("../../images/collection/collection__shirt--small.jpg");
+      }
+    }
+
+    &:nth-child(6) {
+      background-image: url("../../images/collection/collection__accessories--large.jpg");
+
+      @include respond(Tab) {
+        background-image: url("../../images/collection/collection__accessories--medium.jpg");
+      }
+
+      @include respond(Phone) {
+        background-image: url("../../images/collection/collection__accessories--small.jpg");
+      }
+    }
+  }
 }

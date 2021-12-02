@@ -4,12 +4,18 @@ const headerVideo = document.querySelector(".header__video--content");
 const nav = document.querySelector(".navigation");
 const header = document.querySelector(".header");
 const allSections = document.querySelectorAll(".section");
-const slides = document.querySelectorAll(".slide");
-const sliderBtnLeft = document.querySelector(".slider__btn-left");
-const sliderBtnRight = document.querySelector(".slider__btn-right");
-const newsContainer = document.querySelector(".news");
-const news = document.querySelectorAll(".news__new");
-const modals = document.querySelectorAll(".modal");
+const slides = document.querySelectorAll(".slider__slide");
+const sliderBtnLeft = document.querySelector(".slider__btn--left");
+const sliderBtnRight = document.querySelector(".slider__btn--right");
+const storiesContainer = document.querySelector(".stories__container");
+const stories = document.querySelectorAll(".stories__story");
+const allImages = document.querySelectorAll("img");
+const lines = document.querySelectorAll(".latest-product__line");
+const navBtn = document.querySelector(".navigation__btn");
+const navBtnContent = document.querySelector(".navigation__btn-body");
+const navList = document.querySelector(".navigation__list");
+const copyright = document.querySelector(".footer__copyright");
+const footer = document.querySelector(".footer");
 
 /*  ########## Start/Stop header video ########## */
 let playState = true;
@@ -90,8 +96,32 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "ArrowLeft") prevSlide();
   else if (e.key === "ArrowRight") nextSlide();
 });
+/*  ########## Toggle navigation ########## */
+let navToggled = false;
 
-/*  ########## Smooth scroll ########## */
+const toggleNav = function () {
+  if (!navToggled) {
+    navList.classList.add("toggled");
+    navBtnContent.classList.add("toggled");
+    navToggled = !navToggled;
+  } else {
+    navList.classList.remove("toggled");
+    navBtnContent.classList.remove("toggled");
+    navToggled = !navToggled;
+  }
+};
+
+navBtn.addEventListener("click", toggleNav);
+
+document.addEventListener("keydown", function () {
+  if (navToggled) {
+    navList.classList.remove("toggled");
+    navBtnContent.classList.remove("toggled");
+    navToggled = !navToggled;
+  }
+});
+
+/*  ########## Smooth scroll navigation ########## */
 document
   .querySelector(".navigation__list")
   .addEventListener("click", function (e) {
@@ -99,36 +129,81 @@ document
     if (e.target.classList.contains("navigation__list--link")) {
       const id = e.target.getAttribute(`href`);
       document.querySelector(id).scrollIntoView({ behavior: `smooth` });
+      toggleNav();
     }
   });
 
-/*  ########## Open/Close modal ########## */
-const modalWindow = function (data) {
-  modals.forEach(function (m) {
-    if (m.dataset.news === data) {
-      m.style.display = "block";
-    }
-  });
-};
-
-newsContainer.addEventListener("click", function (e) {
-  let data;
-  if (e.target.classList.contains("news__new")) {
-    data = e.target.dataset.news;
-  }
-  modalWindow(data);
-});
-
-const closeModal = function (e) {
-  if (e.target.classList.contains("modal__window--close")) {
-    e.target.closest(".modal").style.display = "none";
-  }
-};
-
-modals.forEach((m) => m.addEventListener("click", closeModal));
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    modals.forEach((m) => (m.style.display = "none"));
+/*  ########## Smooth scroll footer ########## */
+document.querySelector(".footer").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("footer__link")) {
+    const id = e.target.getAttribute(`href`);
+    document.querySelector(id).scrollIntoView({ behavior: `smooth` });
   }
 });
+
+/*  ########## Story scroll into view ########## */
+storiesContainer.addEventListener("mouseover", function (e) {
+  if (e.target.classList.contains("stories__image")) {
+    e.target.scrollIntoView({ behavior: "smooth" });
+  }
+
+  return;
+});
+
+/*  ########## Disable image dragging ########## */
+allImages.forEach((img) => img.setAttribute("draggable", false));
+
+/*  ########## Reveal lines ########## */
+const revealLines = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove("line--hidden");
+  observer.unobserve(entry.target);
+};
+
+const lineObserver = new IntersectionObserver(revealLines, {
+  root: null,
+  threshold: 0,
+});
+
+lines.forEach(function (line) {
+  lineObserver.observe(line);
+  line.classList.add("line--hidden");
+});
+
+/*  ########## Copyright ########## */
+const setCopyright = function () {
+  const date = new Date().getFullYear();
+  copyright.textContent = `\u00A9 all rights reserved to damian rives ${date}`;
+};
+setCopyright();
+
+/*  ########## Smoothscroll from header ########## */
+document.querySelector(".header__cta").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector(".collection").scrollIntoView({ behavior: "smooth" });
+});
+
+/*  ########## Lazy loading images ########## */
+
+// !!! Grid causing problem with proper image loading !!!
+
+// const imgTargets = document.querySelectorAll("img[data-src]");
+
+// const switchImages = function (entries, observer) {
+//   const [entry] = entries;
+//   entry.target.src = entry.target.dataset.src;
+// };
+
+// const imgObserver = new IntersectionObserver(switchImages, {
+//   root: null,
+//   threshold: 0,
+//   rootMargin: "200px",
+// });
+
+// imgTargets.forEach((img) => {
+//   imgObserver.observe(img);
+// });

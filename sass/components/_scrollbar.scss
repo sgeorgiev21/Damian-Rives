@@ -9,3 +9,9 @@
 ::-webkit-scrollbar-thumb {
   background: $color-dark-secondary;
 }
+
+@supports (scrollbar-color: $color-dark-main) {
+  * {
+    scrollbar-color: $color-dark-main !important;
+  }
+}

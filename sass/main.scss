@@ -4,11 +4,18 @@
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
+@import "base/animations";
 
 @import "layout/navigation";
 @import "layout/header";
+@import "layout/footer";
 
-@import "pages/home";
+@import "pages/home/home";
+@import "pages/home/sections/collection";
+@import "pages/home/sections/stories";
+@import "pages/home/sections/contacts";
+@import "pages/home/sections/news";
 
 @import "components/scrollbar";
 @import "components/slider";
+@import "components/form";
